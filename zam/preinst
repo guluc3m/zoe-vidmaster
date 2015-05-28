@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Install the MoviePy package
+pip install -t ${ZOE_HOME}/lib/python moviepy

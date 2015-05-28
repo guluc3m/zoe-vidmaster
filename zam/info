@@ -1,0 +1,7 @@
+agent = vidmaster
+version = 0.1.0
+license = MIT
+maintainer = Rafael Medina García <rafamedgar@gmail.com>
+script = vidmaster.py
+topics =
+description = Automated video edition
