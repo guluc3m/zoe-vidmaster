@@ -40,5 +40,5 @@ if __name__ == '__main__':
     if args.subject != "vidmaster":
         sys.exit(0)
 
-    print("message dst=vidmaster&tag=compose&script=%s&sender=%s\n" % (
+    print("message dst=vidmaster&tag=compose&script=%s&sender=%s" % (
         args.script, args.sender))
