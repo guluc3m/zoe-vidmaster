@@ -1,4 +1,5 @@
-#!/usr/bin/env perl
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 #
 # Zoe vidmaster - https://github.com/rmed/zoe-vidmaster
 #
@@ -24,19 +25,20 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-use Getopt::Long qw(:config pass_through);
-use strict;
+import argparse
+import sys
 
-my $subject;
-my $sender;
-my $script;
+parser = argparse.ArgumentParser()
 
-GetOptions("mail-subject=s"                 => \$subject,
-           "mail-sender=s"                  => \$sender,
-           "application/octet-stream=s"     => \$script);
+parser.add_argument('--mail-subject', dest='subject')
+parser.add_argument('--msg-sender-alias', dest='sender')
+parser.add_argument('--application/octet-stream', dest='script')
 
-if ($subject ne "vidmaster") {
-    exit 0;
-}
+if __name__ == '__main__':
+    args, unknown = parser.parse_known_args()
 
-print("message dst=vidmaster&tag=compose&script=$script&sender=$sender);
+    if args.subject != "vidmaster":
+        sys.exit(0)
+
+    print("message dst=vidmaster&tag=compose&script=%s&sender=%s\n" % (
+        args.script, args.sender))
